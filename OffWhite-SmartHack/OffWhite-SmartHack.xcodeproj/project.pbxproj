@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		171D45422B002DCC00B0E6C1 /* CountriesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D45412B002DCC00B0E6C1 /* CountriesAPI.swift */; };
+		171D45452B002E5100B0E6C1 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 171D45442B002E5100B0E6C1 /* SwiftyJSON */; };
+		171D45482B002E7B00B0E6C1 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D45472B002E7B00B0E6C1 /* CountryModel.swift */; };
+		171D454B2B00313D00B0E6C1 /* netfox in Frameworks */ = {isa = PBXBuildFile; productRef = 171D454A2B00313D00B0E6C1 /* netfox */; };
+		171D454D2B003B4500B0E6C1 /* CountriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D454C2B003B4500B0E6C1 /* CountriesService.swift */; };
+		171D454F2B003EB700B0E6C1 /* BusinessSectorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D454E2B003EB700B0E6C1 /* BusinessSectorAPI.swift */; };
+		171D45512B003F9400B0E6C1 /* BusinessSectorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D45502B003F9400B0E6C1 /* BusinessSectorModel.swift */; };
+		171D45532B00422500B0E6C1 /* BusinessSectorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D45522B00422500B0E6C1 /* BusinessSectorService.swift */; };
 		9B47236A2AFFBFD000FD6424 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4723692AFFBFD000FD6424 /* RootView.swift */; };
 		9B47236E2AFFBFD400FD6424 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B47236D2AFFBFD400FD6424 /* Assets.xcassets */; };
 		9B4723712AFFBFD400FD6424 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B4723702AFFBFD400FD6424 /* Preview Assets.xcassets */; };
@@ -37,6 +45,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		171D45412B002DCC00B0E6C1 /* CountriesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesAPI.swift; sourceTree = "<group>"; };
+		171D45472B002E7B00B0E6C1 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
+		171D454C2B003B4500B0E6C1 /* CountriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesService.swift; sourceTree = "<group>"; };
+		171D454E2B003EB700B0E6C1 /* BusinessSectorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSectorAPI.swift; sourceTree = "<group>"; };
+		171D45502B003F9400B0E6C1 /* BusinessSectorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSectorModel.swift; sourceTree = "<group>"; };
+		171D45522B00422500B0E6C1 /* BusinessSectorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSectorService.swift; sourceTree = "<group>"; };
 		9B4723662AFFBFD000FD6424 /* OffWhite-SmartHack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OffWhite-SmartHack.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B4723692AFFBFD000FD6424 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		9B47236D2AFFBFD400FD6424 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,13 +86,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				171D45452B002E5100B0E6C1 /* SwiftyJSON in Frameworks */,
 				9BE1EBF22AFFDB4000F1BC15 /* BottomSheet in Frameworks */,
+				171D454B2B00313D00B0E6C1 /* netfox in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		171D45402B002DB400B0E6C1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				171D45412B002DCC00B0E6C1 /* CountriesAPI.swift */,
+				171D454E2B003EB700B0E6C1 /* BusinessSectorAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		171D45462B002E7000B0E6C1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				171D45472B002E7B00B0E6C1 /* CountryModel.swift */,
+				171D45502B003F9400B0E6C1 /* BusinessSectorModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		9B47235D2AFFBFD000FD6424 = {
 			isa = PBXGroup;
 			children = (
@@ -102,7 +136,9 @@
 				9B4723692AFFBFD000FD6424 /* RootView.swift */,
 				9B4723772AFFC09900FD6424 /* SceneDelegate.swift */,
 				9B4723792AFFC0B800FD6424 /* AppDelegate.swift */,
+				171D45402B002DB400B0E6C1 /* API */,
 				9BE1EBF82AFFE1E500F1BC15 /* Service */,
+				171D45462B002E7000B0E6C1 /* Models */,
 				9B47237F2AFFC2B700FD6424 /* UI */,
 				9B47237B2AFFC0CC00FD6424 /* Utils */,
 				9B47236F2AFFBFD400FD6424 /* Preview Content */,
@@ -198,6 +234,8 @@
 			children = (
 				9BE1EBF92AFFE23500F1BC15 /* UserDefaultsService.swift */,
 				9BE1EBFB2AFFE24600F1BC15 /* UserService.swift */,
+				171D454C2B003B4500B0E6C1 /* CountriesService.swift */,
+				171D45522B00422500B0E6C1 /* BusinessSectorService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -227,6 +265,8 @@
 			name = "OffWhite-SmartHack";
 			packageProductDependencies = (
 				9BE1EBF12AFFDB4000F1BC15 /* BottomSheet */,
+				171D45442B002E5100B0E6C1 /* SwiftyJSON */,
+				171D454A2B00313D00B0E6C1 /* netfox */,
 			);
 			productName = "OffWhite-SmartHack";
 			productReference = 9B4723662AFFBFD000FD6424 /* OffWhite-SmartHack.app */;
@@ -258,6 +298,8 @@
 			mainGroup = 9B47235D2AFFBFD000FD6424;
 			packageReferences = (
 				9BE1EBF02AFFDB4000F1BC15 /* XCRemoteSwiftPackageReference "BottomSheet" */,
+				171D45432B002E5100B0E6C1 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				171D45492B00313D00B0E6C1 /* XCRemoteSwiftPackageReference "netfox" */,
 			);
 			productRefGroup = 9B4723672AFFBFD000FD6424 /* Products */;
 			projectDirPath = "";
@@ -289,15 +331,21 @@
 			files = (
 				9BE1EC062B001D8B00F1BC15 /* CompaniesListViewModel.swift in Sources */,
 				9B4723892AFFC3DF00FD6424 /* StartViewModel.swift in Sources */,
+				171D45482B002E7B00B0E6C1 /* CountryModel.swift in Sources */,
+				171D45532B00422500B0E6C1 /* BusinessSectorService.swift in Sources */,
+				171D454F2B003EB700B0E6C1 /* BusinessSectorAPI.swift in Sources */,
 				9B4723902AFFC48A00FD6424 /* BaseViewModel.swift in Sources */,
 				9B4723812AFFC2D300FD6424 /* LaunchscreenRepresentable.swift in Sources */,
 				9B47237A2AFFC0B800FD6424 /* AppDelegate.swift in Sources */,
+				171D45512B003F9400B0E6C1 /* BusinessSectorModel.swift in Sources */,
 				9B47236A2AFFBFD000FD6424 /* RootView.swift in Sources */,
 				9B4723922AFFC69200FD6424 /* CustomColors.swift in Sources */,
 				9B4723872AFFC3C900FD6424 /* StartScreenView.swift in Sources */,
 				9BE1EBEA2AFFD76300F1BC15 /* CompaniesListScreenView.swift in Sources */,
 				9B47238E2AFFC46E00FD6424 /* MainViewModel.swift in Sources */,
 				9B47239A2AFFD27B00FD6424 /* Ext+View.swift in Sources */,
+				171D45422B002DCC00B0E6C1 /* CountriesAPI.swift in Sources */,
+				171D454D2B003B4500B0E6C1 /* CountriesService.swift in Sources */,
 				9B4723782AFFC09900FD6424 /* SceneDelegate.swift in Sources */,
 				9BE1EBFA2AFFE23500F1BC15 /* UserDefaultsService.swift in Sources */,
 				9B4723962AFFCE7A00FD6424 /* CustomFont.swift in Sources */,
@@ -515,6 +563,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		171D45432B002E5100B0E6C1 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		171D45492B00313D00B0E6C1 /* XCRemoteSwiftPackageReference "netfox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kasketis/netfox";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		9BE1EBF02AFFDB4000F1BC15 /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/lucaszischka/BottomSheet.git";
@@ -526,6 +590,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		171D45442B002E5100B0E6C1 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 171D45432B002E5100B0E6C1 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		171D454A2B00313D00B0E6C1 /* netfox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 171D45492B00313D00B0E6C1 /* XCRemoteSwiftPackageReference "netfox" */;
+			productName = netfox;
+		};
 		9BE1EBF12AFFDB4000F1BC15 /* BottomSheet */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9BE1EBF02AFFDB4000F1BC15 /* XCRemoteSwiftPackageReference "BottomSheet" */;

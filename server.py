@@ -13,7 +13,7 @@ def home():
 
 @app.route(f'{base_api_route}/get_all_countries', methods=['GET'])
 def get_country():
-    return flask.jsonify(get_ranks.get_all_ranks())
+    return {"countries": [list(get_ranks.get_all_ranks().keys())]}
 
 @app.route(f'{base_api_route}/get_countries_with_ranks', methods=['GET'])
 def get_countries_with_ranks():

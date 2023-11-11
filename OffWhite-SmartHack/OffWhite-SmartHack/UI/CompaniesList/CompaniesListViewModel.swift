@@ -12,13 +12,13 @@ class CompaniesListViewModel: ObservableObject {
     @Published var procentInvestment: String
     @Published var numberYears: String
     @Published var selectedCountry: String
-    @Published var areaOfActivity: String
+    @Published var selectedBusinessSector: String
     
-    init(investment: String, procentInvestment: String, numberYears: String, selectedCountry: String, areaOfActivity: String) {
+    init(investment: String, procentInvestment: String, numberYears: String, selectedCountry: String, selectedBusinessSector: String) {
         self.investment = investment
         self.procentInvestment = procentInvestment
         self.numberYears = numberYears
         self.selectedCountry = selectedCountry
-        self.areaOfActivity = areaOfActivity
+        self.selectedBusinessSector = selectedBusinessSector
     }
 }

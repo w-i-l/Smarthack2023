@@ -7,13 +7,29 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
-class MainViewModel: BaseViewModel<DefaultViewModelEvent>, ObservableObject {
+class MainViewModel: BaseViewModel<DefaultViewModelEvent> {
     @Published var investment: String = ""
     @Published var procentInvestment: String = ""
     @Published var numberYears: String = ""
     @Published var errorMessage: String = ""
     @Published var isBestMatchOn: Bool = false
+    
+    override init() {
+        
+        super.init()
+        
+        CountriesAPI.shared.getAllCountries()
+            .eraseToAnyPublisher()
+            .sink { _ in
+                
+            } receiveValue: { value in
+                print(value)
+            }
+            .store(in: &bag)
+
+    }
     
     func validateFields() -> Bool {
         if self.investment.isEmpty || self.procentInvestment.isEmpty || self.numberYears.isEmpty {

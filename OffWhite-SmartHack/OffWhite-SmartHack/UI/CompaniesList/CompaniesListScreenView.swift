@@ -30,7 +30,7 @@ struct CompaniesListScreenView: View {
                 .padding(.bottom, 12)
                 HStack(spacing: 8) {
                     AssociateRectangleView(name: viewModel.selectedCountry, image: "pin")
-                    AssociateRectangleView(name: viewModel.areaOfActivity, image: "luggage")
+                    AssociateRectangleView(name: viewModel.selectedBusinessSector, image: "luggage")
                 }.padding(.bottom, 32)
                 
                 Text("Based on your filters, we’re suggesting the following companies:")

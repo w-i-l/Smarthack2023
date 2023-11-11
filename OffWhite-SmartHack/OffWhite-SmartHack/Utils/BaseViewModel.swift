@@ -12,7 +12,7 @@ enum DefaultViewModelEvent {
     case completed(message: String?)
 }
 
-class BaseViewModel<T: Any> {
+class BaseViewModel<T: Any> : ObservableObject {
     var bag = Set<AnyCancellable>()
     @Published var isLoading = false
 }
