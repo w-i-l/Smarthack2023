@@ -103,7 +103,7 @@ struct CardView: View {
                     } else {
                         //todo: line chart
                         
-                        Text("Predicted Market Value")
+                        Text("Predicted Market Value  ")
                             .font(Poppins.Bold(size: 14))
                             .foregroundColor(CustomColors.myGray)
                     }
