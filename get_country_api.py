@@ -124,11 +124,11 @@ def parse_for_all_links():
 # result = asyncio.get_event_loop().run_until_complete(main(url))
 # json.dump(result, open("url.json", "w+"))
 
-if __name__ == '__main__':
-    # get_links_for_all_countries()
-    # parse_for_all_links()
-    details = json.load(open("all_countries_parsed.json", "r"))
-    print(details["Russian Federation"].keys())
+# if __name__ == '__main__':
+#     # get_links_for_all_countries()
+#     # parse_for_all_links()
+#     details = json.load(open("all_countries_parsed.json", "r"))
+#     print(details["Russian Federation"].keys())
 
 
 

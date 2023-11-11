@@ -65,6 +65,16 @@ def get_ranks_for_country():
     json.dump(output, open("ranks.json", "w+"))
     return output
 
-if __name__ == "__main__":
-    result = get_ranks_for_country()
-    print(result)
+def get_all_ranks(ascending = False):
+    ranks = json.load(open("ranks.json", "r"))
+    sorted_ranks = sorted(ranks.items(), key=lambda x: x[1], reverse=not ascending)
+    return dict(sorted_ranks)
+
+def get_fist_n_ranks(n = 10, ascending = False):
+    ranks = get_all_ranks()
+    sorted_ranks = sorted(ranks.items(), key=lambda x: x[1], reverse=not ascending)
+    return sorted_ranks[:n]
+
+# if __name__ == "__main__":
+#     result = get_ranks_for_country()
+#     print(result)
