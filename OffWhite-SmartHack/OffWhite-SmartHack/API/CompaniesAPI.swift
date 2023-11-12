@@ -16,7 +16,7 @@ class CompaniesAPI: BaseViewModel<Any> {
     
     override private init() {}
     
-    public func getCompanyDetails(companyName: String, address: String) -> Future<CompanyModel, Error> {
+    public func getCompanyDetails(companyName: String, address: String, sustenaibleScore: Int) -> Future<CompanyModel, Error> {
         Future<CompanyModel, Error> { promise in
             
             var urlComponents = URLComponents(string: "http://127.0.0.1:\(PORT)/api/v1/get_company_details")
@@ -51,7 +51,8 @@ class CompaniesAPI: BaseViewModel<Any> {
                         mainIndustry: company["main_industry"].stringValue,
                         mainCountry: company["main_country"].stringValue,
                         technologies: company["technologies"].arrayValue.map { $0.stringValue},
-                        yearFounded: company["year_founded"].intValue
+                        yearFounded: company["year_founded"].intValue,
+                        sustenaibleScore: sustenaibleScore
                     )
                     //                    print(companyModel)
                     promise(.success(companyModel))
@@ -100,7 +101,8 @@ class CompaniesAPI: BaseViewModel<Any> {
                     var companiesPromises: [Future<CompanyModel, Error>] = []
                     print(data.keys)
                     data.keys.forEach { company in
-                        let companyPromise = self.getCompanyDetails(companyName: company, address: location)
+                        let score = data[company]?.intValue
+                        let companyPromise = self.getCompanyDetails(companyName: company, address: location, sustenaibleScore: score ??  0)
                         companiesPromises.append(companyPromise)
                     }
                     

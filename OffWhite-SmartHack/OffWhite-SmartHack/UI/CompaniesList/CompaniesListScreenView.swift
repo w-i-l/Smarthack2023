@@ -24,12 +24,13 @@ struct NumberCircleView: View {
                 .rotationEffect(.degrees(-90))
             
             Text(text)
-                .font(Poppins.Bold(size: 24))
+                .font(Poppins.Bold(size: 12))
                 .foregroundColor(CustomColors.myBlue)
         }
-        .background(CustomColors.myGray)
+//        .background(CustomColors.myGray)
         .frame(width: 70, height: 70)
         .animation(.easeInOut(duration: 1.0))
+        .padding(20)
     }
 }
 
@@ -43,11 +44,24 @@ struct CompaniesListScreenView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack(alignment: .leading, spacing: 0) {
-                Text("Best Match Companies")
-                    .font(Poppins.Bold(size: 28))
-                    .foregroundColor(CustomColors.myGray)
-                    .padding(.top, 16)
-                    .padding(.bottom, 20)
+                HStack(spacing: 0) {
+                    BackButton()
+                    
+                    Text("Best match companies")
+                        .font(Poppins.Bold(size: 24))
+                        .foregroundColor(CustomColors.myGray)
+                        .padding(.leading, 8)
+                    
+                    Spacer()
+                }.padding(.top, 16)
+                    .padding(.bottom, 12)
+                    .padding(.horizontal, 24)
+                
+                Rectangle()
+                    .frame(height: 1)
+                    .foregroundColor(CustomColors.myNude)
+                    .cornerRadius(10, corners: [.bottomLeft, .bottomRight])
+                    .padding(.bottom)
                 
                 HStack(spacing: 8) {
                     AssociateRectangleView(name: viewModel.investment + " USD", image: "dollar")
@@ -65,9 +79,11 @@ struct CompaniesListScreenView: View {
                     .foregroundColor(CustomColors.myGray)
                     .padding(.bottom, 12)
                 
+                Spacer()
                 
                 switch viewModel.fetchingState {
                 case .done:
+                    
                     ScrollView(showsIndicators: false) {
                         VStack(alignment: .leading, spacing: 0) {
                             ForEach(viewModel.allCompanies, id: \.self.companyName) { company in
@@ -79,9 +95,16 @@ struct CompaniesListScreenView: View {
                         }
                     }
                 default:
-                    ProgressView()
-                        .progressViewStyle(.circular)
-                        .tint(.white)
+                    VStack {
+                        HStack {
+                            Spacer()
+                            ProgressView()
+                                .progressViewStyle(.circular)
+                                .tint(.white)
+                            Spacer()
+                        }
+                        Spacer()
+                    }
                 }
             }.padding(.horizontal, 24)
         }
@@ -145,7 +168,7 @@ struct CardView: View {
                     
                     VStack(alignment: .leading, spacing: 0) {
                         if company.isPublic {
-                            NumberCircleView(text: String(stockPrice)).padding(.leading, 12)
+                            NumberCircleView(text: String(company.sustenaibleScore ?? 0)).padding(.leading, 12)
                             Button {
                                let modal = ModalView(title: "Predicted growth status",
                                                      description: "We calculate this using a custom trained ML model").asDestination()

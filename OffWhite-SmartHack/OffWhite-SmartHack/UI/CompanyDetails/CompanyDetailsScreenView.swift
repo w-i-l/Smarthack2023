@@ -52,11 +52,19 @@ struct CompanyDetailsScreenView: View {
                                 .fixedSize(horizontal: true, vertical: false)
                             
                             HStack(spacing: 0) {
-                                DetailsCard(description: "sdfvcbhdkfjhsbc kjshdabvcnkjhdsbv cbj vuhcifedksjvnchdkjfsbvncj fhd kjsdfhjbvnclhfdjskbcx vjkhsjdvbnclidfjksbv hdjksjbcvn fkhdjbcsvn cnx jdhkcnsv hdjbckx hdjskbcjxvn dhjlcxb jlhdckxb njdhcvx nhdjkcsbnv dljhk")
+                                DetailsCard(description: viewModel.company.description ?? "No description provided.")
                                 
                                 Spacer()
                                 
-                                NumberCircleView(text: String(viewModel.stockPrice))
+                                VStack {
+                                    NumberCircleView(text: String(viewModel.company.sustenaibleScore ?? 0))
+                                    
+                                    Text("Sustenability score")
+                                        .font(Poppins.Regular(size: 12))
+                                        .foregroundColor(CustomColors.myGray)
+                                        .padding(.bottom, 4)
+                                }
+                                
                             }.padding(.vertical, 12)
                             
                             VStack(alignment: .leading, spacing: 0) {
