@@ -5,6 +5,7 @@ import numpy as np
 import requests
 from sympy import solve, nroots, I
 from sympy.abc import k
+import json as json
 
 # aici puteti sa mai adaugati chestii, dar nu sa stergeti
 class Company:
@@ -72,7 +73,7 @@ def getAiWorth(country, industries):
         'Content-Type': 'application/json'
     }
 
-    json = {
+    payload = {
         "filters": {
             "and": [
                 {
@@ -91,11 +92,10 @@ def getAiWorth(country, industries):
         }
     }
 
-    apiCall("", headers = headers, json = json)
+    apiCall("", headers = headers, json = payload)
 
     denseModel = load_model("modelv2.keras")
 
-    worthCompanies = []
     for company in companies:
 
         try:
@@ -115,10 +115,24 @@ def getAiWorth(country, industries):
             mean /= count
             company.companyPotential = mean
 
-            print(company.companyName)
-            print(company.companyPotential)
-
         except:
             continue
-        
-    return companies # returneaza o lista de companii cu un potential. = 1 nu creste, > 1 creste, < 1 scade
+
+    sorted_dicts = []
+
+    for company in companies:
+        company_dict = {"companyName": company.companyName, "companyPotential": float(round(company.companyPotential, 4))}
+        sorted_dicts.append(company_dict)
+
+    json_data = json.dumps(sorted_dicts, indent=2)
+
+    return json_data
+
+# print(getAiWorth("United States", ["IT"]))
+
+
+
+
+
+
+
