@@ -41,11 +41,7 @@ struct CompaniesListScreenView: View {
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .leading, spacing: 0) {
                         ForEach(0..<5) { _ in
-                            CardView(companyName: "da",
-                                     revenue: "da",
-                                     stackPrice: "da",
-                                     isPublic: true,
-                                     number: viewModel.predictedNumber)
+                            CardView(companyName: "da", revenue: "da", stackPrice: "da", isPublic: true)
                                 .padding(.bottom, 16)
                         }
                     }
@@ -60,15 +56,11 @@ struct CardView: View {
     var revenue: String
     var stackPrice: String
     var isPublic: Bool
-    var number: Double
     @EnvironmentObject private var navigation: Navigation
     
     var body: some View {
         Button {
-            let destinationVM = CompanyDetailsViewModel(companyName: companyName,
-                                                        revenue: revenue,
-                                                        stackPrice: stackPrice,
-                                                        number: number)
+            let destinationVM = CompanyDetailsViewModel(companyName: "ddd", revenue: "dddd", stackPrice: "ddd")
             navigation.push(CompanyDetailsScreenView(viewModel: destinationVM).asDestination(), animated: true)
         } label: {
             VStack(alignment: .leading, spacing: 0) {
@@ -110,9 +102,9 @@ struct CardView: View {
                     
                     VStack(alignment: .leading, spacing: 0) {
                         if isPublic {
-                            NumberCircleView(text: String(number)).padding(.leading, 12)
+                            //todo: line chart
                             Button {
-                               let modal = ModalView(title: "Predicted growth status",
+                               let modal = ModalView(title: "Predicted investment safety",
                                                      description: "We calculate this using a custom trained ML model").asDestination()
                                 navigation.presentModal(modal, animated: true) {
                                 } controllerConfig: { _ in
@@ -136,13 +128,7 @@ struct CardView: View {
                                 }
                             }
                         } else {
-                            if number < 1 {
-                                Square(color: CustomColors.myError, text: "Company value will most likely grow")
-                            } else if number == 1 {
-                                Square(color: CustomColors.black2, text: "Company value is likely to stay the same")
-                            } else {
-                                Square(color: CustomColors.myGreen, text: "Company value will most likely decrease")
-                            }
+                            //todo: line chart
                             Button {
                                 let modal = ModalView(title: "Sustainability Score",
                                                       description: "We calculate this score using AI to give meaningful insights to our users").asDestination()
@@ -174,46 +160,6 @@ struct CardView: View {
             .cornerRadius(12)
 
         }
-    }
-}
-
-struct NumberCircleView: View {
-    @State private var progress: CGFloat = 0.5
-    var text: String
-
-    var body: some View {
-        ZStack {
-            Circle()
-                .stroke(lineWidth: 10)
-                .foregroundColor(CustomColors.myGray)
-            
-            Circle()
-                .trim(from: 0, to: progress)
-                .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round))
-                .foregroundColor(CustomColors.myBlue)
-                .rotationEffect(.degrees(-90))
-            
-            Text(text)
-                .font(Poppins.Bold(size: 24))
-                .foregroundColor(CustomColors.myBlue)
-        }
-        .background(CustomColors.myGray)
-        .frame(width: 70, height: 70)
-        .animation(.easeInOut(duration: 1.0))
-    }
-}
-
-struct Square: View {
-    var color: Color
-    var text: String
-    
-    var body: some View {
-        VStack(alignment: .center, spacing: 0) {
-            Text(text)
-                .bold()
-                .font(.system(size: 16))
-                .foregroundColor(color)
-        }.background(color.opacity(0.3))
     }
 }
 
