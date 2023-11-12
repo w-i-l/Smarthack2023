@@ -1,8 +1,15 @@
 from openai import OpenAI
-client = OpenAI()
+import requests
+import json
+
+from multiprocessing import Pool
+from concurrent.futures import ProcessPoolExecutor
+
+
+client = OpenAI(api_key="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")
 
 def getActivityDomains(country = "Romania"):
-    user_prompt = "Based on this country name: " + country + "what are the most profitable activity domains of local businesses to invest in? Give me only the name for the top 5 results in alphabetical order."
+    user_prompt = "Based on this country name: " + country + "what are the most profitable activity domains of local businesses to invest in? Give me only the name for the top 10 results in alphabetical order."
     response = client.chat.completions.create(
         model="gpt-4-1106-preview",
         response_format={ "type": "json_object" },
@@ -31,12 +38,6 @@ def getSustScore(companyName = "Microsoft"):
     return response.choices[0].message.content
 
 # getSustScore("China Communications Services")
-
-import requests
-import json
-
-from multiprocessing import Pool
-from concurrent.futures import ProcessPoolExecutor
 
 def get_sust_score_filtered(location, activity_domain):
     url = "https://data.soleadify.com/search/v2/companies?page_size=100"
@@ -76,11 +77,12 @@ def get_sust_score_filtered(location, activity_domain):
 
     return results
 
-#usage example
-print(get_sust_score_filtered("China", [
-    "Artificial Intelligence",
-    "E-Commerce",
-    "Green Energy",
-    "Manufacturing",
-    "Telecommunications"
-  ]))
+# if __name__ == "__main__":
+# #usage example
+#     print(get_sust_score_filtered("China", [
+#         "Artificial Intelligence",
+#         "E-Commerce",
+#         "Green Energy",
+#         "Manufacturing",
+#         "Telecommunications"
+#     ]))

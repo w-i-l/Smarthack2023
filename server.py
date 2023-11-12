@@ -1,7 +1,7 @@
 import flask
 import get_ranks
 import openai_req
-import get_ai_worth
+# import get_ai_worth
 
 app = flask.Flask(__name__)
 # app.config["DEBUG"] = True
