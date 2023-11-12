@@ -13,6 +13,7 @@ class CompaniesListViewModel: ObservableObject {
     @Published var numberYears: String
     @Published var selectedCountry: String
     @Published var selectedBusinessSector: String
+    @Published var predictedNumber: Double = 40.0
     
     init(investment: String, procentInvestment: String, numberYears: String, selectedCountry: String, selectedBusinessSector: String) {
         self.investment = investment
