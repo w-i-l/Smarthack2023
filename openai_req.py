@@ -35,12 +35,12 @@ def getSustScore(companyName = "Microsoft"):
         ]
     )
     # print(response.choices[0].message.content)
-    return response.choices[0].message.content
+    return {companyName: int(response.choices[0].message.content.split(":")[1].strip().removesuffix("\n}"))}
 
 # getSustScore("China Communications Services")
 
 def get_sust_score_filtered(location, activity_domain):
-    url = "https://data.soleadify.com/search/v2/companies?page_size=100"
+    url = "https://data.soleadify.com/search/v2/companies?page_size=10"
 
     payload = json.dumps({
     "filters": {
@@ -71,11 +71,22 @@ def get_sust_score_filtered(location, activity_domain):
 
     companies = json_response["result"]
     company_names = [company["company_name"] for company in companies if company["company_type"] == "Public"]
-    pool = Pool(6)
-    results = pool.map(getSustScore, company_names)
-    pool.close()
+    # pool = Pool(6)
+    # results = pool.map(getSustScore, company_names)
+    # pool.close()
 
-    return results
+    # with ProcessPoolExecutor(max_workers=6) as executor:
+    #     results = executor.map(getSustScore, company_names)
+    #     print(list(results))
+
+    results = {}
+    for company in company_names:
+        result = getSustScore(company)
+        results.update(result)
+
+    return {"scores": results}
+
+
 
 # if __name__ == "__main__":
 # #usage example

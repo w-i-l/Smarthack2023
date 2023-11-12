@@ -1,6 +1,7 @@
 import flask
 import get_ranks
 import openai_req
+import get_company
 # import get_ai_worth
 
 app = flask.Flask(__name__)
@@ -71,6 +72,26 @@ def get_best_sustainability_score():
 
 @app.route(f'{base_api_route}/temp_get_companies', methods=['Get'])
 def get_temp_companies():
-    return openai_req.get_temp_company()
+    params = flask.request.args.to_dict(flat=True)
+    if "activity_domain" not in params:
+        return "No activity_domain specified!"
+    if "location" not in params:
+        return "No location specified!"
+    activity_domain = params["activity_domain"].split(",")
+    location = params["location"]
+    print(activity_domain, location)
+    print(type(activity_domain), type(location))
+    return openai_req.get_sust_score_filtered(location, activity_domain)
 
-app.run(port=5000)
+@app.route(f'{base_api_route}/get_company_details', methods=['GET'])
+def get_company_details():
+    params = flask.request.args.to_dict()
+    if "company" not in params:
+        return "No company specified!"
+    if "location" not in params:
+        return "No location specified!"
+    company = params["company"]
+    location = params["location"]
+    return get_company.get_company_details(company, location)
+
+app.run(port=8000)

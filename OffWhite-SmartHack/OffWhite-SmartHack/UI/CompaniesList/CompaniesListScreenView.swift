@@ -38,13 +38,26 @@ struct CompaniesListScreenView: View {
                     .foregroundColor(CustomColors.myGray)
                     .padding(.bottom, 12)
                 
-                ScrollView(showsIndicators: false) {
-                    VStack(alignment: .leading, spacing: 0) {
-                        ForEach(0..<5) { _ in
-                            CardView(companyName: "da", revenue: "da", stackPrice: "da", isPublic: true)
+                
+                switch viewModel.fetchingState {
+                case .done:
+                    ScrollView(showsIndicators: false) {
+                        VStack(alignment: .leading, spacing: 0) {
+                            ForEach(viewModel.allCompanies, id: \.self.companyName) { company in
+                                CardView(
+                                    companyName: company.companyName,
+                                    revenue: String(company.revenue),
+                                    stackPrice: String(Float.random(in: 100...1000)),
+                                    isPublic: company.companyType == "Public"
+                                )
                                 .padding(.bottom, 16)
+                            }
                         }
                     }
+                default:
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                        .tint(.white)
                 }
             }.padding(.horizontal, 24)
         }
@@ -60,7 +73,7 @@ struct CardView: View {
     
     var body: some View {
         Button {
-            let destinationVM = CompanyDetailsViewModel(companyName: "ddd", revenue: "dddd", stackPrice: "ddd")
+            let destinationVM = CompanyDetailsViewModel(companyName: companyName, revenue: revenue, stackPrice: stackPrice)
             navigation.push(CompanyDetailsScreenView(viewModel: destinationVM).asDestination(), animated: true)
         } label: {
             VStack(alignment: .leading, spacing: 0) {
