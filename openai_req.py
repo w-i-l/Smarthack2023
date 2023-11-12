@@ -6,7 +6,7 @@ from multiprocessing import Pool
 from concurrent.futures import ProcessPoolExecutor
 
 
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="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")
 
 def getActivityDomains(country = "Romania"):
     user_prompt = "Based on this country name: " + country + "what are the most profitable activity domains of local businesses to invest in? Give me only the name for the top 10 results in alphabetical order."

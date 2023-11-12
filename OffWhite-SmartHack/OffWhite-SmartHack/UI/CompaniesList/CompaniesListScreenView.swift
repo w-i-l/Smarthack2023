@@ -83,14 +83,26 @@ struct CompaniesListScreenView: View {
                 
                 switch viewModel.fetchingState {
                 case .done:
-                    
-                    ScrollView(showsIndicators: false) {
-                        VStack(alignment: .leading, spacing: 0) {
-                            ForEach(viewModel.allCompanies, id: \.self.companyName) { company in
-                                CardView(
-                                    company: company
-                                )
-                                .padding(.bottom, 16)
+                    if viewModel.allCompanies.isEmpty {
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            Text("We couldn't find any match.")
+                                .font(Poppins.Bold(size: 20))
+                                .foregroundColor(CustomColors.myGray.opacity(0.7))
+                                .padding(.bottom, 12)
+                            Spacer()
+                        }
+                        Spacer()
+                    } else {
+                        ScrollView(showsIndicators: false) {
+                            VStack(alignment: .leading, spacing: 0) {
+                                ForEach(viewModel.allCompanies, id: \.self.companyName) { company in
+                                    CardView(
+                                        company: company
+                                    )
+                                    .padding(.bottom, 16)
+                                }
                             }
                         }
                     }
