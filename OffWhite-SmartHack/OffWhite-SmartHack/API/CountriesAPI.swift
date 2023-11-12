@@ -9,6 +9,8 @@ import Foundation
 import SwiftyJSON
 import Combine
 
+let PORT: String = "8000"
+
 class CountriesAPI {
     
     static let shared = CountriesAPI()
@@ -19,7 +21,7 @@ class CountriesAPI {
         Future<[CountryModel], Error> { promise in
             
             
-            var urlComponents = URLComponents(string: "http://127.0.0.1:5000/api/v1/get_all_countries")
+            var urlComponents = URLComponents(string: "http://127.0.0.1:\(PORT)/api/v1/get_all_countries")
             urlComponents?.queryItems = [
             ]
             
