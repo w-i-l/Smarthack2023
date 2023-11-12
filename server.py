@@ -1,6 +1,7 @@
 import flask
 import get_ranks
 import openai_req
+import get_ai_worth
 
 app = flask.Flask(__name__)
 # app.config["DEBUG"] = True
@@ -10,6 +11,17 @@ base_api_route = "/api/v1"
 @app.route('/', methods=['GET'])
 def home():
     return "Hello world!"
+
+@app.route(f'{base_api_route}/get_worth_investing', methods=['GET'])
+def get_worth():
+    params = flask.request.args.to_dict()
+    if "country" not in params:
+        return "No country specified!"
+    if "industries" not in params:
+        return "No industry specified!"
+    country = params["country"]
+    industries = params["industries"]
+    return get_ai_worth.getAiWorth(country, industries)
 
 @app.route(f'{base_api_route}/get_all_countries', methods=['GET'])
 def get_country():
