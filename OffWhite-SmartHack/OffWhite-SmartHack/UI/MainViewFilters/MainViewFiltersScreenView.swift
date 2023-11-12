@@ -38,7 +38,6 @@ struct MainViewFiltersScreenView: View {
                     
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack(alignment: .leading, spacing: 0) {
-                            
 
                             Spacer()
                             
@@ -56,13 +55,13 @@ struct MainViewFiltersScreenView: View {
                             )
                                 
                             
-                            }.padding(.all, 12)
-                            
-                            Text("Filter by the domain of activity")
-                                .font(Poppins.Bold(size: 16))
-                                .foregroundColor(CustomColors.myGray)
-                                .padding(.bottom, 8)
-//
+                        }.padding(.all, 12)
+                        
+                        Text("Filter by the domain of activity        ")
+                            .font(Poppins.Bold(size: 16))
+                            .foregroundColor(CustomColors.myGray)
+                            .padding(.bottom, 8)
+                        
                         CustomPickerView<String>(
                             image: "luggage",
                             itemsList: viewModel.allBusinessSectors.map {$0.name},

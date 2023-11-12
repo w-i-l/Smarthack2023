@@ -155,13 +155,6 @@ struct MainScreenView: View {
                             }
                             .toggleStyle(CheckboxToggleStyle())
                             .padding(.top, 20)
-                            
-                            if !viewModel.errorMessage.isEmpty && !viewModel.isBestMatchOn {
-                                Text("This field is required")
-                                    .foregroundColor(CustomColors.myError)
-                                    .font(Poppins.Regular(size: 12))
-                                    .padding(.top, 4)
-                            }
                         }
                     }
                 }.padding(.horizontal, 24)
