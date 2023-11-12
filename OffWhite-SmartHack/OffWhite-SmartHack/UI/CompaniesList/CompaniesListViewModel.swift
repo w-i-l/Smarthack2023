@@ -13,6 +13,7 @@ class CompaniesListViewModel: BaseViewModel<Any> {
     @Published var numberYears: String
     @Published var selectedCountry: String
     @Published var selectedBusinessSector: String
+    @Published var predictedNumber: Double = 40.0
     
     @Published var fetchingState: FetchingState = .loading
     @Published var allCompanies: [CompanyModel] = []

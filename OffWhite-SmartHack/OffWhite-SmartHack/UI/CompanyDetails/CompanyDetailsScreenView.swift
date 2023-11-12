@@ -50,7 +50,13 @@ struct CompanyDetailsScreenView: View {
                                 .lineLimit(2)
                                 .fixedSize(horizontal: true, vertical: false)
                             
-                            DetailsCard(description: viewModel.company.description ?? "No description provided.").padding(.vertical, 12)
+                            HStack(spacing: 0) {
+                                DetailsCard(description: "sdfvcbhdkfjhsbc kjshdabvcnkjhdsbv cbj vuhcifedksjvnchdkjfsbvncj fhd kjsdfhjbvnclhfdjskbcx vjkhsjdvbnclidfjksbv hdjksjbcvn fkhdjbcsvn cnx jdhkcnsv hdjbckx hdjskbcjxvn dhjlcxb jlhdckxb njdhcvx nhdjkcsbnv dljhk")
+                                
+                                Spacer()
+                                
+                                NumberCircleView(text: String(viewModel.number))
+                            }.padding(.vertical, 12)
                             
                             VStack(alignment: .leading, spacing: 0) {
                                 Text("Main Activity Area")

@@ -50,6 +50,7 @@
 		9BE1EC0E2B004E0000F1BC15 /* CompanyDetailsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1EC0D2B004E0000F1BC15 /* CompanyDetailsScreenView.swift */; };
 		9BE1EC162B00BA5400F1BC15 /* OnboardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1EC152B00BA5400F1BC15 /* OnboardingScreenView.swift */; };
 		9BE1EC182B00BA6800F1BC15 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1EC172B00BA6800F1BC15 /* OnboardingViewModel.swift */; };
+		9BE1EC1B2B00C8D600F1BC15 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 9BE1EC1A2B00C8D600F1BC15 /* SwiftUICharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				171D45452B002E5100B0E6C1 /* SwiftyJSON in Frameworks */,
+				9BE1EC1B2B00C8D600F1BC15 /* SwiftUICharts in Frameworks */,
 				9BE1EBF22AFFDB4000F1BC15 /* BottomSheet in Frameworks */,
 				171D454B2B00313D00B0E6C1 /* netfox in Frameworks */,
 			);
@@ -307,6 +309,7 @@
 				9BE1EBF12AFFDB4000F1BC15 /* BottomSheet */,
 				171D45442B002E5100B0E6C1 /* SwiftyJSON */,
 				171D454A2B00313D00B0E6C1 /* netfox */,
+				9BE1EC1A2B00C8D600F1BC15 /* SwiftUICharts */,
 			);
 			productName = "OffWhite-SmartHack";
 			productReference = 9B4723662AFFBFD000FD6424 /* OffWhite-SmartHack.app */;
@@ -340,6 +343,7 @@
 				9BE1EBF02AFFDB4000F1BC15 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 				171D45432B002E5100B0E6C1 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				171D45492B00313D00B0E6C1 /* XCRemoteSwiftPackageReference "netfox" */,
+				9BE1EC192B00C8D600F1BC15 /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
 			);
 			productRefGroup = 9B4723672AFFBFD000FD6424 /* Products */;
 			projectDirPath = "";
@@ -635,6 +639,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		9BE1EC192B00C8D600F1BC15 /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/willdale/SwiftUICharts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -652,6 +664,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9BE1EBF02AFFDB4000F1BC15 /* XCRemoteSwiftPackageReference "BottomSheet" */;
 			productName = BottomSheet;
+		};
+		9BE1EC1A2B00C8D600F1BC15 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BE1EC192B00C8D600F1BC15 /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
+			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
