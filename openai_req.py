@@ -1,5 +1,9 @@
 from openai import OpenAI
+<<<<<<< HEAD
+client = OpenAI(api_key="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")
+=======
 client = OpenAI()
+>>>>>>> 758bd7170bb6bc55ce98562267dcd9430f417bb0
 
 def getActivityDomains(country = "Romania"):
     user_prompt = "Based on this country name: " + country + "what are the most profitable activity domains of local businesses to invest in? Give me only the name for the top 5 results in alphabetical order."

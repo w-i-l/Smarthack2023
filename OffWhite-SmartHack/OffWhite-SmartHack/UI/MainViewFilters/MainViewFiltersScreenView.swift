@@ -39,81 +39,37 @@ struct MainViewFiltersScreenView: View {
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack(alignment: .leading, spacing: 0) {
                             
+
+                            Spacer()
+                            
                             Text("Filter by location")
                                 .font(Poppins.SemiBold(size: 16))
                                 .foregroundColor(CustomColors.myGray)
                                 .padding(.bottom, 8)
                                 .padding(.top, 32)
+
+                            CustomPickerView<String>(
+                                image: "location",
+                                itemsList: viewModel.allCountries.map {$0.name},
+                                width: UIScreen.main.bounds.width - 100,
+                                selection: $viewModel.selectedCountry
+                            )
+                                
                             
-                            HStack(spacing: 0) {
-                                Image("location")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: 24)
-                                    .foregroundColor(.black)
-                                    .padding(.trailing, 6)
-                                
-                                Picker("", selection: $viewModel.selectedCountry) {
-                                    ForEach(viewModel.allCountries, id: \.self.name) { country in
-                                        Text(country.name)
-                                            .font(Poppins.Bold(size: 12))
-                                    }
-                                }.placeholder(when: viewModel.selectedCountry.isEmpty, placeholder: {
-                                    Text("Select the location")
-                                        .font(Poppins.Bold(size: 12))
-                                        .foregroundColor(CustomColors.myGray)
-                                    
-                                })
-                                .pickerStyle(MenuPickerStyle())
-                                
-                                Spacer()
-                                
-                                Image("arrow_down")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: 24)
-                                    .foregroundColor(.black)
-                                    .padding(.trailing, 6)
                             }.padding(.all, 12)
-                                .border(CustomColors.myGray, width: 1, cornerRadius: 3)
-                                .padding(.bottom, 24)
                             
                             Text("Filter by the domain of activity")
                                 .font(Poppins.Bold(size: 16))
                                 .foregroundColor(CustomColors.myGray)
                                 .padding(.bottom, 8)
-                            
-                            HStack(spacing: 0) {
-                                Image("luggage")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: 24)
-                                    .foregroundColor(.black)
-                                    .padding(.trailing, 6)
-                                
-                                Picker("", selection: $viewModel.selectedBusinessSector) {
-                                    ForEach(viewModel.allBusinessSectors, id: \.self.name) { sector in
-                                        Text(sector.name)
-                                            .font(Poppins.Bold(size: 12))
-                                    }
-                                }.placeholder(when: viewModel.selectedBusinessSector.isEmpty, placeholder: {
-                                    Text("Select the domain of activity")
-                                        .font(Poppins.Bold(size: 12))
-                                        .foregroundColor(CustomColors.myGray)
-                                })
-                                .pickerStyle(MenuPickerStyle())
-                                
-                                Spacer()
-                                
-                                Image("arrow_down")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: 24)
-                                    .foregroundColor(.black)
-                                    .padding(.trailing, 6)
-                            }.padding(.all, 12)
-                                .border(CustomColors.myGray, width: 1, cornerRadius: 3)
-                            
+//
+                        CustomPickerView<String>(
+                            image: "luggage",
+                            itemsList: viewModel.allBusinessSectors.map {$0.name},
+                            width: UIScreen.main.bounds.width - 100,
+                            selection: $viewModel.selectedBusinessSector
+                        )
+                        
                             Spacer(minLength: 60)
                             
                         }
@@ -121,7 +77,6 @@ struct MainViewFiltersScreenView: View {
                     
                     Spacer(minLength: 80)
                     
-                }
                 VStack(spacing: 0) {
                     Spacer(minLength: 24)
                     RoundedButton(text: "Apply Filters") {
@@ -147,7 +102,7 @@ struct MainViewFiltersScreenView: View {
                         .padding(.bottom, 24)
                 }
             
-            case .error, .loading:
+            default:
                 ProgressView()
                     .progressViewStyle(.circular)
                     .tint(.white)
