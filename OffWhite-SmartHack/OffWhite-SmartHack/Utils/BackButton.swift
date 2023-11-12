@@ -30,6 +30,11 @@ struct ModalView: View {
             Color.black.opacity(0.4)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             VStack(spacing: 0) {
+                Image("info-circle-big")
+                    .resizable()
+                    .frame(width: 80, height: 80)
+                    .padding(32)
+                
                 Text(title)
                     .font(Poppins.Bold(size: 20))
                     .foregroundColor(CustomColors.myGray)
@@ -42,10 +47,10 @@ struct ModalView: View {
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 12)
                 
-            }.padding(.horizontal, 12)
+            }.padding(.horizontal, 16)
                 .padding(.vertical, 16)
-                .background(CustomColors.black2.cornerRadius(8))
-                .padding(.horizontal, 44)
+                .background(CustomColors.myBlack.cornerRadius(8))
+                .padding(.horizontal, 36)
         }.ignoresSafeArea()
     }
 }

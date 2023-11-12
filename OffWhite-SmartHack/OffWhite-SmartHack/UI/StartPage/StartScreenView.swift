@@ -6,20 +6,15 @@
 //
 
 import SwiftUI
-//import Firebase
 
 struct StartScreenView: View {
     @ObservedObject var viewModel = StartViewModel()
     
     var body: some View {
-//        if viewModel.isLoggedIn() {
+        if viewModel.getOnboardingStatus() {
             InitialStateScreen()
-//        } else {
-//            if viewModel.getOnboardingStatus() {
-//                LogInScreenView()
-//            } else {
-//                OnBoardingScreenView()
-//            }
-//        }
+        } else {
+            OnboardingScreenView()
+        }
     }
 }

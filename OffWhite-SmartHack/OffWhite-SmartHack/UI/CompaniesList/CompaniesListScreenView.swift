@@ -113,7 +113,8 @@ struct CardView: View {
                             } label: {
                                 HStack(spacing: 0) {
                                     Text("Sustainability Score")
-                                        .font(Poppins.Bold(size: 14))
+                                        .bold()
+                                        .font(.system(size: 14))
                                         .foregroundColor(CustomColors.myGray)
                                         .multilineTextAlignment(.center)
                                         .lineLimit(2)
@@ -122,7 +123,7 @@ struct CardView: View {
                                     Image("info-circle")
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: 14)
+                                        .frame(height: 18)
                                         .padding(.leading, 4)
                                 }
                             }
@@ -137,7 +138,8 @@ struct CardView: View {
                             } label: {
                                 HStack(spacing: 0) {
                                     Text("Predicted Market Value")
-                                        .font(Poppins.Bold(size: 14))
+                                        .bold()
+                                        .font(.system(size: 14))
                                         .foregroundColor(CustomColors.myGray)
                                         .multilineTextAlignment(.center)
                                         .lineLimit(2)
@@ -146,7 +148,7 @@ struct CardView: View {
                                     Image("info-circle")
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: 14)
+                                        .frame(height: 18)
                                         .padding(.leading, 4)
                                 }
                             }

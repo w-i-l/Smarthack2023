@@ -80,7 +80,7 @@ struct CustomPickerView<ItemType: StringProtocol>: View {
                         }
                     }
                     .transition(.identity)
-                }
+                }.frame(height: height)
                 
             }
             Spacer()
@@ -88,7 +88,6 @@ struct CustomPickerView<ItemType: StringProtocol>: View {
         .frame(width: width)
         .background(isShown ? CustomColors.myBlack : .clear)
         .cornerRadius(8)
-        .frame(height: height)
     }
 }
 

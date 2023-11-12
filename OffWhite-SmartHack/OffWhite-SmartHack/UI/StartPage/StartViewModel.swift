@@ -8,14 +8,9 @@
 import Foundation
 
 class StartViewModel: ObservableObject {
-//    var userDefaultsService = UserDefaultsService.shared
-//    var userService = UserService.shared
-//    
-//    func isLoggedIn() -> Bool {
-//        return userService.isLoggedIn
-//    }
-//    
-//    func getOnboardingStatus() -> Bool {
-//        return userDefaultsService.getOnboardingStatus()
-//    }
+    var userDefaultsService = UserDefaultsService.shared
+    
+    func getOnboardingStatus() -> Bool {
+        return userDefaultsService.getOnboardingStatus()
+    }
 }

@@ -95,52 +95,57 @@ struct CompanyDetailsScreenView: View {
                             }
                             
                         }
-                        
-                        Spacer(minLength: 50)
-                        
-                        Text("Reach company on social media")
-                            .font(Poppins.Regular(size: 16))
-                            .foregroundColor(CustomColors.myGray)
-                            .padding(.bottom, 12)
-                        
-                        HStack(spacing: 16) {
-                            Button {
-                                
-                            } label: {
-                                Image("facebook")
-                                    .resizable()
-                                    .frame(width: 24, height: 24)
-                            }
-                            Button {
-                                
-                            } label: {
-                                Image("facebook")
-                                    .resizable()
-                                    .frame(width: 24, height: 24)
-                            }
-                            
-                            Button {
-                                
-                            } label: {
-                                Image("facebook")
-                                    .resizable()
-                                    .frame(width: 24, height: 24)
-                            }
-                        }.padding(.bottom, 12)
-                        
-                        Button {
-                            
-                        } label: {
-                            Text("Visit the website")
-                                .underline()
-                                .font(Poppins.Regular(size: 14))
-                                .foregroundColor(CustomColors.myGray)
-                                .padding(.bottom, 24)
-                            
-                        }
                     }
                 }.padding(.horizontal, 24)
+                
+                Spacer(minLength: 80)
             }
+            
+            VStack(spacing: 0) {
+                Spacer(minLength: 24)
+                
+                Text("Reach company on social media")
+                    .font(Poppins.Regular(size: 16))
+                    .foregroundColor(CustomColors.myGray)
+                    .padding(.bottom, 12)
+                
+                HStack(spacing: 16) {
+                    Button {
+                        
+                    } label: {
+                        Image("facebook")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                    }
+                    Button {
+                        
+                    } label: {
+                        Image("instagram")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                    }
+                    
+                    Button {
+                        
+                    } label: {
+                        Image("linkedin")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                    }
+                }.padding(.bottom, 12)
+                
+                Button {
+                    
+                } label: {
+                    Text("Visit the website")
+                        .underline()
+                        .font(Poppins.Regular(size: 14))
+                        .foregroundColor(CustomColors.myGray)
+                        .padding(.bottom, 24)
+                    
+                }
+            }.padding(.horizontal, 24)
+                    .padding(.bottom, 24)
         }.frame(maxWidth: .infinity)
             .ignoresSafeArea(.container, edges: [.bottom, .leading, .trailing])
     }
@@ -150,7 +155,7 @@ struct DetailsCard: View {
     var description: String
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [CustomColors.myNude, CustomColors.myDarkGray]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [CustomColors.myNude, CustomColors.myDarkGray]), startPoint: .top, endPoint: .bottom).borderRadius(CustomColors.myNude, width: 1, cornerRadius: 16, corners: [.topLeft, .bottomRight])
             
             Text(description)
                 .font(Poppins.Regular(size: 14))
@@ -158,6 +163,6 @@ struct DetailsCard: View {
                 .multilineTextAlignment(.leading)
                 .padding(.all, 12)
         }
-        .borderRadius(CustomColors.myNude, width: 1, cornerRadius: 16, corners: [.topLeft, .bottomRight])
+        
     }
 }
