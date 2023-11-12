@@ -17,7 +17,7 @@ class BusinessSectorAPI {
     
     public func getAllBusinessSectors() -> Future<[BusinessSectorModel], Error> {
         Future<[BusinessSectorModel], Error> { promise in
-            var urlComponents = URLComponents(string: "http://127.0.0.1:5000/api/v1/get_best_activity_domains")
+            var urlComponents = URLComponents(string: "http://127.0.0.1:\(PORT)/api/v1/get_best_activity_domains")
             urlComponents?.queryItems = [
             ]
             

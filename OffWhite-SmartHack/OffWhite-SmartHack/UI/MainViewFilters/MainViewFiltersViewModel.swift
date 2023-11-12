@@ -54,7 +54,7 @@ class MainViewFiltersViewModel: BaseViewModel<Any> {
             .sink { _ in
                 
             } receiveValue: { [weak self] sectors in
-                print(sectors)
+                
                 self?.allBusinessSectors = sectors
                 if let first = sectors.first {
                     self?.selectedBusinessSector = first.name

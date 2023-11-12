@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // speed up improvment
         let _ = BusinessSectorService.shared.getAllBusniessSectors()
-//        let _ = CompaniesAPI.shared.getAllCompanies()
+//        let _ = CompaniesAPI.shared.getAllCompanies(activityDomain: ["Artificial Intelligence", "E-Commerce","Green Energy","Manufacturing","Telecommunications"], location: "China")
+//        let _ = CompaniesAPI.shared.getCompanyDetails(companyName: "Apple", address: "USA")
         
         return true
     }
