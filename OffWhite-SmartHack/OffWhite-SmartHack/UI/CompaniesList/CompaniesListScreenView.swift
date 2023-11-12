@@ -7,6 +7,33 @@
 
 import SwiftUI
 
+struct NumberCircleView: View {
+    @State private var progress: CGFloat = 0.5
+    var text: String
+
+    var body: some View {
+        ZStack {
+            Circle()
+                .stroke(lineWidth: 10)
+                .foregroundColor(CustomColors.myGray)
+            
+            Circle()
+                .trim(from: 0, to: progress)
+                .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round))
+                .foregroundColor(CustomColors.myBlue)
+                .rotationEffect(.degrees(-90))
+            
+            Text(text)
+                .font(Poppins.Bold(size: 24))
+                .foregroundColor(CustomColors.myBlue)
+        }
+        .background(CustomColors.myGray)
+        .frame(width: 70, height: 70)
+        .animation(.easeInOut(duration: 1.0))
+    }
+}
+
+
 struct CompaniesListScreenView: View {
     @StateObject var viewModel: CompaniesListViewModel
     
@@ -117,8 +144,8 @@ struct CardView: View {
                     Spacer()
                     
                     VStack(alignment: .leading, spacing: 0) {
-                        if isPublic {
-                            NumberCircleView(text: String(number)).padding(.leading, 12)
+                        if company.isPublic {
+                            NumberCircleView(text: String(stockPrice)).padding(.leading, 12)
                             Button {
                                let modal = ModalView(title: "Predicted growth status",
                                                      description: "We calculate this using a custom trained ML model").asDestination()

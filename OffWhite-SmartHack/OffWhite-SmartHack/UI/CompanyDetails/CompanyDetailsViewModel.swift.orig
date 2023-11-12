@@ -1,0 +1,31 @@
+//
+//  CompanyDetailsViewModel.swift
+//  OffWhite-SmartHack
+//
+//  Created by Aldea Alexia on 12.11.2023.
+//
+
+import Foundation
+
+class CompanyDetailsViewModel: ObservableObject {
+<<<<<<< HEAD
+    @Published var company: CompanyModel
+    let stockPrice: Float
+    
+    init(company: CompanyModel, stockPrice: Float) {
+        self.company = company
+        self.stockPrice = stockPrice
+=======
+    @Published var companyName: String
+    @Published var revenue: String
+    @Published var stackPrice: String
+    @Published var number: Double
+    
+    init(companyName: String, revenue: String, stackPrice: String, number: Double) {
+        self.companyName = companyName
+        self.revenue = revenue
+        self.stackPrice = stackPrice
+        self.number = number
+>>>>>>> 798f06df2340232d727aae865b474d94e1ebe39a
+    }
+}

@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct CompanyDetailsScreenView: View {
     @StateObject var viewModel: CompanyDetailsViewModel
     
@@ -51,13 +50,17 @@ struct CompanyDetailsScreenView: View {
                                 .lineLimit(2)
                                 .fixedSize(horizontal: true, vertical: false)
                             
+<<<<<<< HEAD
+                            DetailsCard(description: viewModel.company.description ?? "No description provided.").padding(.vertical, 12)
+=======
                             HStack(spacing: 0) {
                                 DetailsCard(description: "sdfvcbhdkfjhsbc kjshdabvcnkjhdsbv cbj vuhcifedksjvnchdkjfsbvncj fhd kjsdfhjbvnclhfdjskbcx vjkhsjdvbnclidfjksbv hdjksjbcvn fkhdjbcsvn cnx jdhkcnsv hdjbckx hdjskbcjxvn dhjlcxb jlhdckxb njdhcvx nhdjkcsbnv dljhk")
                                 
                                 Spacer()
                                 
-                                NumberCircleView(text: String(viewModel.stockPrice))
+                                NumberCircleView(text: String(viewModel.number))
                             }.padding(.vertical, 12)
+>>>>>>> 798f06df2340232d727aae865b474d94e1ebe39a
                             
                             VStack(alignment: .leading, spacing: 0) {
                                 Text("Main Activity Area")
