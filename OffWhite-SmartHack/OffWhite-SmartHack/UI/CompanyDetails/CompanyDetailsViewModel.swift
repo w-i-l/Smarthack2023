@@ -8,13 +8,11 @@
 import Foundation
 
 class CompanyDetailsViewModel: ObservableObject {
-    @Published var companyName: String
-    @Published var revenue: String
-    @Published var stackPrice: String
+    @Published var company: CompanyModel
+    let stockPrice: Float
     
-    init(companyName: String, revenue: String, stackPrice: String) {
-        self.companyName = companyName
-        self.revenue = revenue
-        self.stackPrice = stackPrice
+    init(company: CompanyModel, stockPrice: Float) {
+        self.company = company
+        self.stockPrice = stockPrice
     }
 }

@@ -71,8 +71,10 @@ class CompaniesAPI: BaseViewModel<Any> {
         
         Future<[CompanyModel], Error> { promise in
             
+            let allActivities = activityDomain + ["Artificial Intelligence",         "E-Commerce",         "Green Energy",         "Manufacturing",      "Telecommunications"]
+            
             var urlComponents = URLComponents(string: "http://127.0.0.1:\(PORT)/api/v1/temp_get_companies")
-            let stringFromActivityDomains = activityDomain.reduce(into: "") { partialResult, into in
+            let stringFromActivityDomains = allActivities.reduce(into: "") { partialResult, into in
                 partialResult += "\(into), "
             }
             print(stringFromActivityDomains)

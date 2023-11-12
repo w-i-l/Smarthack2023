@@ -22,4 +22,7 @@ struct CompanyModel {
     let mainCountry: String
     let technologies: [String]
     let yearFounded: Int
+    var isPublic: Bool {
+        return companyType == "Public"
+    }
 }

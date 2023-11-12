@@ -21,6 +21,24 @@ struct BackButton: View {
     }
 }
 
+struct CloseButton: View {
+    @EnvironmentObject private var navigation: Navigation
+    
+    var body: some View {
+        Button(action: {
+            navigation.dismissModal(animated: true) {
+                
+            }
+        }) {
+            Image(systemName: "x.circle")
+                .resizable()
+                .renderingMode(.template)
+                .foregroundColor(.white)
+                .frame(width: 32, height: 32)
+        }
+    }
+}
+
 struct ModalView: View {
     let title: String
     let description: String
@@ -29,7 +47,14 @@ struct ModalView: View {
         ZStack {
             Color.black.opacity(0.4)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                
             VStack(spacing: 0) {
+                
+                HStack {
+                    Spacer()
+                    CloseButton()
+                }
+                
                 Image("info-circle-big")
                     .resizable()
                     .frame(width: 80, height: 80)

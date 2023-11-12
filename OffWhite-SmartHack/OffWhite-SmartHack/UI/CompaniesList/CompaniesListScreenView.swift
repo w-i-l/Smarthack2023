@@ -45,10 +45,7 @@ struct CompaniesListScreenView: View {
                         VStack(alignment: .leading, spacing: 0) {
                             ForEach(viewModel.allCompanies, id: \.self.companyName) { company in
                                 CardView(
-                                    companyName: company.companyName,
-                                    revenue: String(company.revenue),
-                                    stackPrice: String(Float.random(in: 100...1000)),
-                                    isPublic: company.companyType == "Public"
+                                    company: company
                                 )
                                 .padding(.bottom, 16)
                             }
@@ -65,27 +62,33 @@ struct CompaniesListScreenView: View {
 }
 
 struct CardView: View {
-    var companyName: String
-    var revenue: String
-    var stackPrice: String
-    var isPublic: Bool
+    
+    let company: CompanyModel
+    private let stockPrice: Float = .random(in: 100..<1000)
+    
     @EnvironmentObject private var navigation: Navigation
     
     var body: some View {
         Button {
-            let destinationVM = CompanyDetailsViewModel(companyName: companyName, revenue: revenue, stackPrice: stackPrice)
+            let destinationVM = CompanyDetailsViewModel(company: company, stockPrice: stockPrice)
             navigation.push(CompanyDetailsScreenView(viewModel: destinationVM).asDestination(), animated: true)
         } label: {
             VStack(alignment: .leading, spacing: 0) {
                 HStack(spacing: 0) {
                     VStack(alignment: .leading, spacing: 0) {
+                        
+                        Text(company.companyName)
+                            .font(Poppins.Regular(size: 16))
+                            .foregroundColor(CustomColors.myGray)
+                            .padding(.bottom, 12)
+                        
                         Text("Main Activity Area")
                             .font(Poppins.Regular(size: 12))
                             .foregroundColor(CustomColors.myBlue)
                             .padding(.bottom, 4)
                             .padding(.top, 12)
                         
-                        Text(companyName)
+                        Text(company.mainIndustry)
                             .font(Poppins.Regular(size: 16))
                             .foregroundColor(CustomColors.myGray)
                             .padding(.bottom, 12)
@@ -95,7 +98,7 @@ struct CardView: View {
                             .foregroundColor(CustomColors.myBlue)
                             .padding(.bottom, 4)
                         
-                        Text(revenue)
+                        Text(String(company.revenue))
                             .font(Poppins.Regular(size: 14))
                             .foregroundColor(CustomColors.myGray)
                             .padding(.bottom, 12)
@@ -105,7 +108,7 @@ struct CardView: View {
                             .foregroundColor(CustomColors.myBlue)
                             .padding(.bottom, 4)
                         
-                        Text(stackPrice)
+                        Text(String(stockPrice))
                             .font(Poppins.Regular(size: 14))
                             .foregroundColor(CustomColors.myGray)
                             .padding(.bottom, 12)
@@ -114,7 +117,7 @@ struct CardView: View {
                     Spacer()
                     
                     VStack(alignment: .leading, spacing: 0) {
-                        if isPublic {
+                        if company.isPublic {
                             //todo: line chart
                             Button {
                                let modal = ModalView(title: "Predicted investment safety",

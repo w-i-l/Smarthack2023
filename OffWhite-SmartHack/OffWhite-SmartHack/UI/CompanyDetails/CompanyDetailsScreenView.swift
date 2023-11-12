@@ -37,20 +37,20 @@ struct CompanyDetailsScreenView: View {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 0) {
                         VStack(alignment: .leading, spacing: 0) {
-                            Text("Company name")
+                            Text(viewModel.company.companyName)
                                 .font(Poppins.Bold(size: 20))
                                 .foregroundColor(CustomColors.myGray)
                                 .padding(.bottom, 8)
                                 .padding(.top, 32)
                             
-                            Text("adresa adresa adresa adresa")
+                            Text(viewModel.company.mainCountry)
                                 .font(Poppins.Bold(size: 14))
                                 .foregroundColor(CustomColors.myGray.opacity(0.5))
                                 .multilineTextAlignment(.leading)
                                 .lineLimit(2)
                                 .fixedSize(horizontal: true, vertical: false)
                             
-                            DetailsCard(description: "sdfvcbhdkfjhsbc kjshdabvcnkjhdsbv cbj vuhcifedksjvnchdkjfsbvncj fhd kjsdfhjbvnclhfdjskbcx vjkhsjdvbnclidfjksbv hdjksjbcvn fkhdjbcsvn cnx jdhkcnsv hdjbckx hdjskbcjxvn dhjlcxb jlhdckxb njdhcvx nhdjkcsbnv dljhk").padding(.vertical, 12)
+                            DetailsCard(description: viewModel.company.description ?? "No description provided.").padding(.vertical, 12)
                             
                             VStack(alignment: .leading, spacing: 0) {
                                 Text("Main Activity Area")
@@ -58,7 +58,7 @@ struct CompanyDetailsScreenView: View {
                                     .foregroundColor(CustomColors.myBlue)
                                     .padding(.bottom, 4)
                                 
-                                Text(viewModel.companyName)
+                                Text(viewModel.company.mainIndustry)
                                     .font(Poppins.Regular(size: 16))
                                     .foregroundColor(CustomColors.myGray)
                                     .padding(.bottom, 12)
@@ -68,7 +68,7 @@ struct CompanyDetailsScreenView: View {
                                     .foregroundColor(CustomColors.myBlue)
                                     .padding(.bottom, 4)
                                 
-                                Text(viewModel.revenue)
+                                Text(String(viewModel.company.revenue))
                                     .font(Poppins.Regular(size: 14))
                                     .foregroundColor(CustomColors.myGray)
                                     .padding(.bottom, 12)
@@ -78,17 +78,7 @@ struct CompanyDetailsScreenView: View {
                                     .foregroundColor(CustomColors.myBlue)
                                     .padding(.bottom, 4)
                                 
-                                Text(viewModel.stackPrice)
-                                    .font(Poppins.Regular(size: 14))
-                                    .foregroundColor(CustomColors.myGray)
-                                    .padding(.bottom, 12)
-                                
-                                Text("Revenue increase in last year")
-                                    .font(Poppins.Regular(size: 12))
-                                    .foregroundColor(CustomColors.myBlue)
-                                    .padding(.bottom, 4)
-                                
-                                Text("80%")
+                                Text(String(viewModel.stockPrice))
                                     .font(Poppins.Regular(size: 14))
                                     .foregroundColor(CustomColors.myGray)
                                     .padding(.bottom, 12)
