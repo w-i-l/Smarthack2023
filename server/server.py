@@ -1,6 +1,6 @@
 import flask
 import get_ranks
-import openai_req
+import server.api.openai_req as openai_req
 import get_company
 # import get_ai_worth
 
