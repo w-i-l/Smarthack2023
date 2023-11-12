@@ -16,4 +16,5 @@ struct CustomColors {
     static let myBlue = Color("blue")
     static let myDarkGray = Color("dark_gray")
     static let myError = Color("error")
+    static let black2 = Color("black2")
 }

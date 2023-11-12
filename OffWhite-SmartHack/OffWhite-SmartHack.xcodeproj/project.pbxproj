@@ -43,6 +43,8 @@
 		9BE1EBFC2AFFE24600F1BC15 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1EBFB2AFFE24600F1BC15 /* UserService.swift */; };
 		9BE1EC032AFFFBD700F1BC15 /* InitialStateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1EC022AFFFBD700F1BC15 /* InitialStateScreen.swift */; };
 		9BE1EC062B001D8B00F1BC15 /* CompaniesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1EC052B001D8B00F1BC15 /* CompaniesListViewModel.swift */; };
+		9BE1EC0C2B004DE900F1BC15 /* CompanyDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1EC0B2B004DE900F1BC15 /* CompanyDetailsViewModel.swift */; };
+		9BE1EC0E2B004E0000F1BC15 /* CompanyDetailsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1EC0D2B004E0000F1BC15 /* CompanyDetailsScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +83,8 @@
 		9BE1EBFB2AFFE24600F1BC15 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		9BE1EC022AFFFBD700F1BC15 /* InitialStateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialStateScreen.swift; sourceTree = "<group>"; };
 		9BE1EC052B001D8B00F1BC15 /* CompaniesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesListViewModel.swift; sourceTree = "<group>"; };
+		9BE1EC0B2B004DE900F1BC15 /* CompanyDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailsViewModel.swift; sourceTree = "<group>"; };
+		9BE1EC0D2B004E0000F1BC15 /* CompanyDetailsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailsScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +258,8 @@
 		9BE1EC042B001B8100F1BC15 /* CompanyDetails */ = {
 			isa = PBXGroup;
 			children = (
+				9BE1EC0B2B004DE900F1BC15 /* CompanyDetailsViewModel.swift */,
+				9BE1EC0D2B004E0000F1BC15 /* CompanyDetailsScreenView.swift */,
 			);
 			path = CompanyDetails;
 			sourceTree = "<group>";
@@ -354,12 +360,14 @@
 				9B4723872AFFC3C900FD6424 /* StartScreenView.swift in Sources */,
 				171D45562B004AC600B0E6C1 /* CustomPickerView.swift in Sources */,
 				9BE1EBEA2AFFD76300F1BC15 /* CompaniesListScreenView.swift in Sources */,
+				9BE1EC0E2B004E0000F1BC15 /* CompanyDetailsScreenView.swift in Sources */,
 				9B47238E2AFFC46E00FD6424 /* MainViewModel.swift in Sources */,
 				9B47239A2AFFD27B00FD6424 /* Ext+View.swift in Sources */,
 				171D45422B002DCC00B0E6C1 /* CountriesAPI.swift in Sources */,
 				171D454D2B003B4500B0E6C1 /* CountriesService.swift in Sources */,
 				9B4723782AFFC09900FD6424 /* SceneDelegate.swift in Sources */,
 				9BE1EBFA2AFFE23500F1BC15 /* UserDefaultsService.swift in Sources */,
+				9BE1EC0C2B004DE900F1BC15 /* CompanyDetailsViewModel.swift in Sources */,
 				9B4723962AFFCE7A00FD6424 /* CustomFont.swift in Sources */,
 				9BE1EBFC2AFFE24600F1BC15 /* UserService.swift in Sources */,
 				9BE1EBE72AFFD58E00F1BC15 /* RoundedButton.swift in Sources */,

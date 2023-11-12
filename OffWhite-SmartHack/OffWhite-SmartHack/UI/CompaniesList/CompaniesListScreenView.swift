@@ -35,7 +35,8 @@ struct CompaniesListScreenView: View {
                 
                 Text("Based on your filters, we’re suggesting the following companies:")
                     .font(Poppins.Bold(size: 20))
-                    .foregroundColor(CustomColors.myDarkGray)
+                    .foregroundColor(CustomColors.myGray)
+                    .padding(.bottom, 12)
                 
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .leading, spacing: 0) {
@@ -55,62 +56,108 @@ struct CardView: View {
     var revenue: String
     var stackPrice: String
     var isPublic: Bool
+    @EnvironmentObject private var navigation: Navigation
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            HStack(spacing: 0) {
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("Main Activity Area")
-                        .font(Poppins.Regular(size: 12))
-                        .foregroundColor(CustomColors.myBlue)
-                        .padding(.bottom, 4)
-                    
-                    Text(companyName)
-                        .font(Poppins.Regular(size: 16))
-                        .foregroundColor(CustomColors.myGray)
-                        .padding(.bottom, 12)
-                    
-                    Text("Revenue")
-                        .font(Poppins.Regular(size: 12))
-                        .foregroundColor(CustomColors.myBlue)
-                        .padding(.bottom, 4)
-                    
-                    Text(revenue)
-                        .font(Poppins.Regular(size: 14))
-                        .foregroundColor(CustomColors.myGray)
-                        .padding(.bottom, 12)
-                    
-                    Text("Current stack price")
-                        .font(Poppins.Regular(size: 12))
-                        .foregroundColor(CustomColors.myBlue)
-                        .padding(.bottom, 4)
-                    
-                    Text(stackPrice)
-                        .font(Poppins.Regular(size: 14))
-                        .foregroundColor(CustomColors.myGray)
-                        .padding(.bottom, 12)
-                }
-                
-                Spacer()
-                
-                VStack(alignment: .leading, spacing: 0) {
-                    if isPublic {
-                        //todo: line chart
+        Button {
+            let destinationVM = CompanyDetailsViewModel(companyName: "ddd", revenue: "dddd", stackPrice: "ddd")
+            navigation.push(CompanyDetailsScreenView(viewModel: destinationVM).asDestination(), animated: true)
+        } label: {
+            VStack(alignment: .leading, spacing: 0) {
+                HStack(spacing: 0) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("Main Activity Area")
+                            .font(Poppins.Regular(size: 12))
+                            .foregroundColor(CustomColors.myBlue)
+                            .padding(.bottom, 4)
+                            .padding(.top, 12)
                         
-                        Text("Sustainability Score")
-                            .font(Poppins.Bold(size: 14))
+                        Text(companyName)
+                            .font(Poppins.Regular(size: 16))
                             .foregroundColor(CustomColors.myGray)
-                    } else {
-                        //todo: line chart
+                            .padding(.bottom, 12)
                         
-                        Text("Predicted Market Value  ")
-                            .font(Poppins.Bold(size: 14))
+                        Text("Revenue")
+                            .font(Poppins.Regular(size: 12))
+                            .foregroundColor(CustomColors.myBlue)
+                            .padding(.bottom, 4)
+                        
+                        Text(revenue)
+                            .font(Poppins.Regular(size: 14))
                             .foregroundColor(CustomColors.myGray)
+                            .padding(.bottom, 12)
+                        
+                        Text("Current stack price")
+                            .font(Poppins.Regular(size: 12))
+                            .foregroundColor(CustomColors.myBlue)
+                            .padding(.bottom, 4)
+                        
+                        Text(stackPrice)
+                            .font(Poppins.Regular(size: 14))
+                            .foregroundColor(CustomColors.myGray)
+                            .padding(.bottom, 12)
+                    }
+                    
+                    Spacer()
+                    
+                    VStack(alignment: .leading, spacing: 0) {
+                        if isPublic {
+                            //todo: line chart
+                            Button {
+                               let modal = ModalView(title: "Predicted investment safety",
+                                                     description: "We calculate this using a custom trained ML model").asDestination()
+                                navigation.presentModal(modal, animated: true) {
+                                } controllerConfig: { _ in
+                                }
+
+                            } label: {
+                                HStack(spacing: 0) {
+                                    Text("Sustainability Score")
+                                        .font(Poppins.Bold(size: 14))
+                                        .foregroundColor(CustomColors.myGray)
+                                        .multilineTextAlignment(.center)
+                                        .lineLimit(2)
+                                        .fixedSize(horizontal: true, vertical: false)
+                                    
+                                    Image("info-circle")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: 14)
+                                        .padding(.leading, 4)
+                                }
+                            }
+                        } else {
+                            //todo: line chart
+                            Button {
+                                let modal = ModalView(title: "Sustainability Score",
+                                                      description: "We calculate this score using AI to give meaningful insights to our users").asDestination()
+                                navigation.presentModal(modal, animated: true) {
+                                } controllerConfig: { _ in
+                                }
+                            } label: {
+                                HStack(spacing: 0) {
+                                    Text("Predicted Market Value")
+                                        .font(Poppins.Bold(size: 14))
+                                        .foregroundColor(CustomColors.myGray)
+                                        .multilineTextAlignment(.center)
+                                        .lineLimit(2)
+                                        .fixedSize(horizontal: true, vertical: false)
+                                    
+                                    Image("info-circle")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: 14)
+                                        .padding(.leading, 4)
+                                }
+                            }
+                        }
                     }
                 }
-            }
-        }.padding(.all, 12)
-        .background(.white.opacity(0.14))
+            }.padding(.all, 12)
+            .background(.white.opacity(0.14))
+            .cornerRadius(12)
+
+        }
     }
 }
 
@@ -134,10 +181,10 @@ struct AssociateRectangleView: View {
                 .padding(.trailing, 8)
             
         }.frame(height: 28)
-            .background(CustomColors.myDarkGray.opacity(0.5))
+            .background(CustomColors.myGray.opacity(0.5))
             .overlay(
-                RoundedRectangle(cornerRadius: 16).stroke(CustomColors.myGray, lineWidth: 1)
+                RoundedRectangle(cornerRadius: 12).stroke(CustomColors.myGray, lineWidth: 1)
             )
-            .cornerRadius(16)
+            .cornerRadius(12)
     }
 }
