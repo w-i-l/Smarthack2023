@@ -14,6 +14,8 @@ struct InitialStateScreen: View {
        ZStack {
            VStack {
                Image("initial_state")
+                   .scaledToFill()
+                   .ignoresSafeArea()
            }
            
            VStack(spacing: 0) {
@@ -23,8 +25,9 @@ struct InitialStateScreen: View {
                }.padding(.horizontal, 24)
                    .padding(.bottom, 56)
            }
-        }.frame(maxWidth: .infinity)
-            .ignoresSafeArea(.container, edges: .all)
+        }
+       .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea()
     }
 }
 

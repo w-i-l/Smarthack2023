@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NFX.sharedInstance().start()
         
         // speed up improvment
-        BusinessSectorService.shared.getAllBusniessSectors()
+        let _ = BusinessSectorService.shared.getAllBusniessSectors()
+//        let _ = CompaniesAPI.shared.getAllCompanies()
         
         return true
     }

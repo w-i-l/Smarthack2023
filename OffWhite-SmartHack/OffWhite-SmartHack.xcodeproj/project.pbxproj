@@ -16,6 +16,9 @@
 		171D45512B003F9400B0E6C1 /* BusinessSectorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D45502B003F9400B0E6C1 /* BusinessSectorModel.swift */; };
 		171D45532B00422500B0E6C1 /* BusinessSectorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D45522B00422500B0E6C1 /* BusinessSectorService.swift */; };
 		171D45562B004AC600B0E6C1 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D45552B004AC600B0E6C1 /* CustomPickerView.swift */; };
+		171D45582B0069AA00B0E6C1 /* CompaniesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D45572B0069AA00B0E6C1 /* CompaniesService.swift */; };
+		171D455A2B0069B500B0E6C1 /* CompaniesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D45592B0069B500B0E6C1 /* CompaniesAPI.swift */; };
+		171D455C2B0069FF00B0E6C1 /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D455B2B0069FF00B0E6C1 /* CompanyModel.swift */; };
 		9B47236A2AFFBFD000FD6424 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4723692AFFBFD000FD6424 /* RootView.swift */; };
 		9B47236E2AFFBFD400FD6424 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B47236D2AFFBFD400FD6424 /* Assets.xcassets */; };
 		9B4723712AFFBFD400FD6424 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B4723702AFFBFD400FD6424 /* Preview Assets.xcassets */; };
@@ -55,6 +58,9 @@
 		171D45502B003F9400B0E6C1 /* BusinessSectorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSectorModel.swift; sourceTree = "<group>"; };
 		171D45522B00422500B0E6C1 /* BusinessSectorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSectorService.swift; sourceTree = "<group>"; };
 		171D45552B004AC600B0E6C1 /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
+		171D45572B0069AA00B0E6C1 /* CompaniesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesService.swift; sourceTree = "<group>"; };
+		171D45592B0069B500B0E6C1 /* CompaniesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesAPI.swift; sourceTree = "<group>"; };
+		171D455B2B0069FF00B0E6C1 /* CompanyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyModel.swift; sourceTree = "<group>"; };
 		9B4723662AFFBFD000FD6424 /* OffWhite-SmartHack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OffWhite-SmartHack.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B4723692AFFBFD000FD6424 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		9B47236D2AFFBFD400FD6424 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 			children = (
 				171D45412B002DCC00B0E6C1 /* CountriesAPI.swift */,
 				171D454E2B003EB700B0E6C1 /* BusinessSectorAPI.swift */,
+				171D45592B0069B500B0E6C1 /* CompaniesAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -115,6 +122,7 @@
 			children = (
 				171D45472B002E7B00B0E6C1 /* CountryModel.swift */,
 				171D45502B003F9400B0E6C1 /* BusinessSectorModel.swift */,
+				171D455B2B0069FF00B0E6C1 /* CompanyModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -251,6 +259,7 @@
 				9BE1EBFB2AFFE24600F1BC15 /* UserService.swift */,
 				171D454C2B003B4500B0E6C1 /* CountriesService.swift */,
 				171D45522B00422500B0E6C1 /* BusinessSectorService.swift */,
+				171D45572B0069AA00B0E6C1 /* CompaniesService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -347,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BE1EC062B001D8B00F1BC15 /* CompaniesListViewModel.swift in Sources */,
+				171D45582B0069AA00B0E6C1 /* CompaniesService.swift in Sources */,
 				9B4723892AFFC3DF00FD6424 /* StartViewModel.swift in Sources */,
 				171D45482B002E7B00B0E6C1 /* CountryModel.swift in Sources */,
 				171D45532B00422500B0E6C1 /* BusinessSectorService.swift in Sources */,
@@ -364,12 +374,14 @@
 				9B47238E2AFFC46E00FD6424 /* MainViewModel.swift in Sources */,
 				9B47239A2AFFD27B00FD6424 /* Ext+View.swift in Sources */,
 				171D45422B002DCC00B0E6C1 /* CountriesAPI.swift in Sources */,
+				171D455C2B0069FF00B0E6C1 /* CompanyModel.swift in Sources */,
 				171D454D2B003B4500B0E6C1 /* CountriesService.swift in Sources */,
 				9B4723782AFFC09900FD6424 /* SceneDelegate.swift in Sources */,
 				9BE1EBFA2AFFE23500F1BC15 /* UserDefaultsService.swift in Sources */,
 				9BE1EC0C2B004DE900F1BC15 /* CompanyDetailsViewModel.swift in Sources */,
 				9B4723962AFFCE7A00FD6424 /* CustomFont.swift in Sources */,
 				9BE1EBFC2AFFE24600F1BC15 /* UserService.swift in Sources */,
+				171D455A2B0069B500B0E6C1 /* CompaniesAPI.swift in Sources */,
 				9BE1EBE72AFFD58E00F1BC15 /* RoundedButton.swift in Sources */,
 				9B47237E2AFFC29300FD6424 /* Navigation.swift in Sources */,
 				9BE1EBF42AFFDBF100F1BC15 /* BackButton.swift in Sources */,

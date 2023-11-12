@@ -43,6 +43,22 @@ def get_sustainability_score():
 
 @app.route(f'{base_api_route}/get_best_activity_domains', methods=['GET'])
 def get_best_activity_domains():
-    return openai_req.getBestActivityDomains()
+    return openai_req.getActivityDomains()
 
-app.run()
+@app.route(f'{base_api_route}/get_best_sustenability_score', methods=['Get'])
+def get_best_sustainability_score():
+    params = flask.request.args.to_dict()
+    if "activity_domain" not in params:
+        return "No activity_domain specified!"
+    if "location" not in params:
+        return "No location specified!"
+    activity_domain = params["activity_domain"]
+    location = params["location"]
+    print(activity_domain, location)
+    return openai_req.get_sust_score_filtered(location, activity_domain)
+
+@app.route(f'{base_api_route}/temp_get_companies', methods=['Get'])
+def get_temp_companies():
+    return openai_req.get_temp_company()
+
+app.run(port=5000)

@@ -1,9 +1,5 @@
 from openai import OpenAI
-<<<<<<< HEAD
-client = OpenAI(api_key="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")
-=======
-client = OpenAI()
->>>>>>> 758bd7170bb6bc55ce98562267dcd9430f417bb0
+client = OpenAI(api_key="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")
 
 def getActivityDomains(country = "Romania"):
     user_prompt = "Based on this country name: " + country + "what are the most profitable activity domains of local businesses to invest in? Give me only the name for the top 5 results in alphabetical order."
@@ -42,7 +38,7 @@ import json
 from multiprocessing import Pool
 from concurrent.futures import ProcessPoolExecutor
 
-def get_sust_score_filtered(location, activity_domain):
+def get_sust_score_filtered(location: str, activity_domain:[str]):
     url = "https://data.soleadify.com/search/v2/companies?page_size=100"
 
     payload = json.dumps({
@@ -52,29 +48,63 @@ def get_sust_score_filtered(location, activity_domain):
             "attribute": "company_location",
             "relation": "equals",
             "value": {
-            "country": location
+            "country": json.dump(location)
             }
         },
         {
-            "attribute": "company_category",
-            "relation": "in",
-            "value": activity_domain
+        "attribute": "company_industry",
+        "relation": "in",
+        "value": json.dump(activity_domain)
         }
         ]
     }
     })
+    
     headers = {
     'x-api-key': 'pXStedvXkA9pMcNK1tWvx_4DesmTsIZ47qfTa6WkqFxgrCvCqJA0mpALQ53J',
     'Content-type': 'application/json'
     }
 
     response = requests.request("POST", url, headers=headers, data=payload)
-
-    json_response = json.loads(response.text)
-
-    companies = json_response["result"]
-    pool = Pool(6)
-    results = pool.map(getSustScore, [company["company_name"] for company in companies if company["company_type"] == "Public"])
-    pool.close()
+    print(response.text)
+    # json_response = json.loads(response.text)
+    # companies = json_response["result"]
+    # pool = Pool(6)
+    # results = pool.map(getSustScore, [company["company_name"] for company in companies if company["company_type"] == "Public"])
+    # pool.close()
 
     return results
+
+
+def get_temp_company():
+
+    url = "https://data.soleadify.com/search/v2/companies?page_size=100"
+
+    payload = json.dumps({
+    "filters": {
+        "and": [
+        {
+            "attribute": "company_location",
+            "relation": "equals",
+            "value": {
+            "country": "Spain"
+            }
+        },
+        {
+            "attribute": "company_industry",
+            "relation": "in",
+            "value": ["business", "IT"]
+        }
+        ]
+    }
+    })
+    
+    headers = {
+        'x-api-key': 'pXStedvXkA9pMcNK1tWvx_4DesmTsIZ47qfTa6WkqFxgrCvCqJA0mpALQ53J',
+        'Content-type': 'application/json'
+    }
+
+    response = requests.request("POST", url, headers=headers, data=payload)
+    print(response.text)
+    json_response = json.loads(response.text)
+    return json_response["result"]
