@@ -27,7 +27,7 @@ struct InitialStateScreen: View {
            }
         }
        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea()
+       .ignoresSafeArea(.container, edges: [.bottom, .leading, .trailing])
     }
 }
 

@@ -3,7 +3,6 @@ from keras.layers import Dense
 from keras.models import load_model
 import numpy as np
 import requests
-import statsmodels.api as sm
 from sympy import solve, nroots, I
 from sympy.abc import k
 
@@ -18,6 +17,7 @@ class Company:
         self.numLocations = numLocations
         self.companyType = companyType
         self.companyTicker = ""
+        self.companyPotential = 0
 
 companies = []
 
@@ -93,20 +93,32 @@ def getAiWorth(country, industries):
 
     apiCall("", headers = headers, json = json)
 
-    denseModel = load_model("model.keras")
+    denseModel = load_model("modelv2.keras")
 
     worthCompanies = []
     for company in companies:
 
-        X_data = np.zeros((2, 4))
-        X_data[1] = np.array([company.yearFounded / 2000, company.employeeCount / 100000, company.estimatedRevenue / 1000000000000, company.numLocations / 500])
+        try:
 
-        Y_data = denseModel.predict(X_data[1:])
+            X_data = np.zeros((2, 4))
+            X_data[1] = np.array([company.yearFounded / 2000, company.employeeCount / 100000, company.estimatedRevenue / 1000000000000, company.numLocations / 500])
 
-        roots = nroots(Y_data[0][0]*k**3 + Y_data[0][1]*k**2 - Y_data[0][2]*k**1 + Y_data[0][3]*k**0)
+            Y_data = denseModel.predict(X_data[1:])
 
-        for root in roots:
-            if abs(root) > 1:
-                worthCompanies.append(company.companyName)
+            roots = nroots(Y_data[0][0]*k**3 + Y_data[0][1]*k**2 - Y_data[0][2]*k**1 + Y_data[0][3]*k**0)
+
+            count = 0
+            mean = 0
+            for root in roots:
+                count +=1
+                mean += abs(root)
+            mean /= count
+            company.companyPotential = mean
+
+            print(company.companyName)
+            print(company.companyPotential)
+
+        except:
+            continue
         
-    return worthCompanies # returneaza o lista de companii worth investing (nu mai merge cu score ca mi-a scapat un detaliu)
+    return companies # returneaza o lista de companii cu un potential. = 1 nu creste, > 1 creste, < 1 scade
