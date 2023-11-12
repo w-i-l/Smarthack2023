@@ -20,3 +20,32 @@ struct BackButton: View {
         }
     }
 }
+
+struct ModalView: View {
+    let title: String
+    let description: String
+    
+    var body: some View {
+        ZStack {
+            Color.black.opacity(0.4)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            VStack(spacing: 0) {
+                Text(title)
+                    .font(Poppins.Bold(size: 20))
+                    .foregroundColor(CustomColors.myGray)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, 12)
+                
+                Text(description)
+                    .font(Poppins.Regular(size: 16))
+                    .foregroundColor(CustomColors.myGray)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, 12)
+                
+            }.padding(.horizontal, 12)
+                .padding(.vertical, 16)
+                .background(CustomColors.black2.cornerRadius(8))
+                .padding(.horizontal, 44)
+        }.ignoresSafeArea()
+    }
+}
