@@ -63,8 +63,11 @@
 </ul>
 
 <p>For simplicity just run the following command in your terminal:</p>
-<code>pip3 install Flask Flask-Cors requests beautifulsoup4 pyppeteer pyppeteer_stealth pycountry openai googlesearch-python
-</code>
+
+```
+pip3 install Flask Flask-Cors requests beautifulsoup4 pyppeteer pyppeteer_stealth pycountry openai googlesearch-python
+```
+
 
 <h3>ARMA model</h3>
 <p>Just like above you need  at least <code>Python 3.9</code> version and the following dependencies:</p>
@@ -79,7 +82,10 @@
 </ul>
 
 <p>The following command will install all the dependencies:</p>
-<code>pip3 install keras numpy requests sympy yfinance statsmodels scikit-learn</code>
+
+```
+pip3 install keras numpy requests sympy yfinance statsmodels scikit-learn
+```
 
 <br>
 <p>After installing all the dependencies, just start the server and then the app. All should work just fine. Just note that the app is configured so you can use it from the simulator, as long as the server is run from the same pc. To change this you will need to modify the URL from the API files from <a href="https://github.com/w-i-l/WealthWave/tree/main/Xcode_project/OffWhite-SmartHack/API">here</a>.</p>
