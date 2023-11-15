@@ -21,9 +21,9 @@
 <p>The roles distribution will be presented in the <a href=#Roles>Roles</a> section of this document.</p>
 <h4>Team members:</h4>
 <ul>
-    <li><a href="https://github.com/bogdan-g-toma">Bodgan Toma</a></li>
     <li><a href="https://github.com/anavarban">Ana-Maria Varban</a></li>
     <li><a href="https://github.com/allee15">Alexia Aldea</a></li>
+    <li><a href="https://github.com/bogdan-g-toma">Bodgan Toma</a></li>
     <li><a href="https://github.com/w-i-l">Ocnaru Mihai</a></li>
 </ul>
 
@@ -37,7 +37,7 @@
 <ul>
     <li><a href="https://github.com/w-i-l/WealthWave/tree/main/Xcode_project">IOS app</a></li>
     <li><a href="https://github.com/w-i-l/WealthWave/tree/main/server">RestAPI server</a></li>
-    <li><a href="https://github.com/w-i-l/WealthWave/tree/main/trained_model">ARMA model</a></li>
+    <li><a href="https://github.com/w-i-l/WealthWave/tree/main/trained_model">ARMA & Dense models</a></li>
 </ul>
 <p>For each one you must check for some requirements before running the code.</p>
 
@@ -69,7 +69,7 @@ pip3 install Flask Flask-Cors requests beautifulsoup4 pyppeteer pyppeteer_stealt
 ```
 
 
-<h3>ARMA model</h3>
+<h3>ARMA & Dense models</h3>
 <p>Just like above you need  at least <code>Python 3.9</code> version and the following dependencies:</p>
 <ul>
     <li><code>keras</code></li>
@@ -114,6 +114,8 @@ pip3 install keras numpy requests sympy yfinance statsmodels scikit-learn
 <p>The simplified scheme for data flow is better illustrated below:</p>
 <img width="970" alt="Screenshot 2023-11-14 at 14 55 54-min" src="https://github.com/w-i-l/WealthWave/assets/65015373/390e7b08-abc1-472e-82df-0f6eb8af7155">
 
+<p />
+<p>For estimating the behaviour of public and <ins>private</ins> companies we used public companies stocks graph data to train an ARMA model. Then, we trained a neural network to be able to generate roughly the same ARMA model, but using only data provided by the API. After training this model we are able to generate an ARMA model for private companies by using our neural network and the data provided by the API. Why is this important? Well, remember that the ARMA model is in close relation with the stocks graph, therefore we can say that we "generated a graph" for private companies.</p>
 
 <br>
 <hr>
@@ -121,7 +123,7 @@ pip3 install keras numpy requests sympy yfinance statsmodels scikit-learn
 
 <ul>
     <li><a href="https://github.com/bogdan-g-toma">Bodgan Toma</a></li>
-    <p>Built and trained the <code>ARMA</code> model for predicting the behavior of a public company</p>
+    <p>Built and trained the <code>ARMA & Dense</code> models for estimating the behavior of both public and <ins>private</ins> companies</p>
     <li><a href="https://github.com/anavarban">Ana-Maria Varban</a></li>
     <p>Designed the UI in <code>Figma</code>, <code>OpenAI</code> API calls and integration with <code>Veridion</code> APIs</p>
     <li><a href="https://github.com/allee15">Alexia Aldea</a></li>
